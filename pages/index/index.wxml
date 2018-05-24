@@ -1,0 +1,44 @@
+<view class='page'>
+    <view class='page__hd'>
+        <view class='page__title'>Messages Board</view>
+        <view class='page__desc'>你能在这儿留下所有你想告诉我的</view>
+    </view>
+
+    <view class="page__bd">
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showToptips}}">错误提示</view>
+        <view class="weui-cells__title">请留言</view>
+        <view class="weui-cells weui-cells_after-title">
+            <form bindsubmit="formSubmit">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea name="message" class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
+                    <view class="weui-textarea-counter">0/200</view>
+                    <button class="weui-btn" type="primary" plain="true" formType="submit">提交</button>
+                </view>
+            </view>
+            </form>
+        </view>
+    </view>
+
+    <view class="weui-panel__hd">留言讯息</view>
+    <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text" wx:for="{{messages}}" wx:key="title" >
+            <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+            <view class="weui-media-box__desc">{{item.message}}</view>
+            <view class="weui-media-box__info">
+                <view class="weui-media-box__info__meta">{{item.time}}</view>
+                <!--<view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</view>-->
+            </view>
+        </view>
+    </view>
+
+
+    <view class="weui-footer">
+        <view class="weui-footer__links">
+            <!-- <navigator url="" class="weui-footer__link">底部链接</navigator> -->
+        </view>
+        <view class="weui-footer__text">Copyright © 2008-2016 Design by Alex Kung</view>
+    </view>
+
+
+</view>
