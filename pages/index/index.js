@@ -35,7 +35,6 @@ Page({
                 'Content-Type': 'application/json'
             },
             success: function (res) {
-                console.log(data)
                 this.onLoad
             }
         })
