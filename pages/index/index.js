@@ -11,14 +11,20 @@ Page({
     onLoad: function(){
         var that = this
         wx.request({
-            url: 'http://localhost/mini/data.php',
+            // // PHP运行
+            // url: 'http://localhost/data.php',
+            // Node 运行
+            url: 'http://localhost/msg',
             header: {
-                'Content-Type': 'application/json'
+                // // PHP 运行
+                // 'Content-Type': 'application/json'
+                // Node 运行
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
                 console.log(res.data)
                 that.setData({
-                    messages: res.data
+                    messages: res.data.data
                 })
             }
         })
@@ -28,11 +34,17 @@ Page({
         data.title = "User";
 
         wx.request({
-            url: 'http://localhost/mini/input.php',
+            // // PHP 运行
+            // url: 'http://localhost/input.php',
+            // Node 运行
+            url: 'http://localhost/msg',
             method: 'POST',
             data: data,
             header: {
-                'Content-Type': 'application/json'
+                // // PHP 运行
+                // 'Content-Type': 'application/json'
+                // Node 运行
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
             success: function (res) {
                 this.onLoad

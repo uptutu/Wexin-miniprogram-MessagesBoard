@@ -14,12 +14,12 @@ if (!$db) die();
 $db->set_charset('utf8');
 
 //从数据库中获取所有的数据（用户留言信息）
-$result= $db->query("select * from messages");
+$result= $db->query("select * from messages limit 20");
 
 //初始化一个 $message 数组变量,用来存放从数据库中查询的数据
 $messages = array();
 while($message = $result->fetch_assoc())
-    $messages[] = $message;
+    $messages['data'][] = $message;
 //养成习惯，关闭数据库
 $db->close();
 
